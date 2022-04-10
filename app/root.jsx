@@ -56,7 +56,7 @@ function Layout({children}) {
 		<div className="remix-app">
 			<header className="remix-app__header">
 				<div className="container remix-app__header-content">
-					<h2>Coding resources</h2>
+					<h2>Coding resources (In-development)</h2>
 					<nav aria-label="Main navigation" className="remix-app__header-nav">
 						<ul>
 							<li>
