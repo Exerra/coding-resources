@@ -34,6 +34,19 @@ export let loader = async ({ params }) => {
 	return await categories.get(params.category.toLowerCase())
 }
 
+export let meta = (loader) => {
+	let data = loader.data
+
+	if (data.status != undefined) {
+		return
+	}
+
+	return {
+		title: data.name,
+		description: data.description
+	}
+}
+
 export default function $category() {
 	let data = useLoaderData()
 

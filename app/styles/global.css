@@ -273,15 +273,19 @@ input:where([type="search"]) {
     text-align: left;
 }
 
-.thLeft, .thCenter {
+.sectionForTable .thLeft, .sectionForTable .thCenter {
     border-right: 1px solid var(--color-table);
     border-bottom: 1px solid var(--color-table);
     padding: var(--padding-table);
 }
 
-.thRight {
+.sectionForTable .thRight {
     border-bottom: 1px solid var(--color-table);
     padding: var(--padding-table);
+}
+
+.sectionForTable table tr:last-child th {
+    border-bottom: 0px;
 }
 
 button:hover {
