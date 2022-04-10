@@ -962,12 +962,11 @@ export default function $category() {
 	for (let resource of data.resources) {
 		resources.push(<tr key={resource.name}>
 			<th className={"thLeft"}>{resource.name}</th>
-			<th className={"thCenter"}><a href={resource.url} target="_blank">{resource.url}</a></th>
+			<th className={"thCenter"}><a href={resource.url} target="_blank">{resource.url.replace(/.{1,20}:\/\//g, "").replace(/www\./g, "")}</a></th>
 			<th className={"thRight"}>{resource.category}</th>
 		</tr>)
 	}
 
-	console.log(data)
 	return (
 		<>
 			<div className={"remix__page"}>
