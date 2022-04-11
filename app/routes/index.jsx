@@ -1,26 +1,9 @@
 import {useLoaderData} from "@remix-run/react";
 import language from "../modules/language";
+import { languages, categories } from "../info.js"
 
 export let loader = () => {
-	let languages = [
-		{
-			name: "Swift",
-			description: "Useful resources for the Swift programming language",
-			link: "/language/swift",
-			image: "https://cdn.exerra.xyz/png/languages/swift.png"
-		}
-	]
-
-	let developmentCategories = [
-		{
-			name: "iOS Development",
-			description: "Useful resources for iOS development",
-			link: "/category/ios",
-			image: "https://cdn.exerra.xyz/png/languages/swift.png"
-		}
-	]
-
-	return {languages, developmentCategories}
+	return {languages, categories}
 }
 
 export default function Index() {
@@ -34,7 +17,7 @@ export default function Index() {
 		languages.push(language(lang))
 	}
 
-	for (let category of data.developmentCategories) {
+	for (let category of data.categories) {
 		categories.push(language(category))
 	}
 
