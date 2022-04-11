@@ -6,6 +6,7 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useCatch
 } from "@remix-run/react";
 
 import style from "~/styles/global.css"
@@ -79,4 +80,13 @@ function Layout({children}) {
 	);
 }
 
+export function CatchBoundary() {
+	const caught = useCatch();
+
+	return (
+		<div>
+			<h1>{caught.status} - {caught.data}</h1>
+		</div>
+	);
+}
 
