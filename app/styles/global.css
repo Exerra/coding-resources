@@ -260,7 +260,8 @@ input:where([type="search"]) {
     gap: 1rem;
     border-radius: 24px;
     background-color: white;
-    overflow: hidden;
+    overflow: hidden; /* So the table doesn't overlap the div */
+    overflow-x: auto; /* On smaller screens without this you cannot view the category th */
 }
 
 .sectionForTable table thead {
