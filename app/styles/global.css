@@ -297,6 +297,10 @@ button:hover {
     cursor: pointer;
 }
 
+a {
+    text-decoration: none;
+}
+
 .remix__form > * {
     margin-top: 0;
     margin-bottom: 0;

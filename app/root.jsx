@@ -1,5 +1,6 @@
 import {
 	Links,
+	Link,
 	LiveReload,
 	Meta,
 	Outlet,
@@ -60,10 +61,7 @@ function Layout({children}) {
 					<nav aria-label="Main navigation" className="remix-app__header-nav">
 						<ul>
 							<li>
-								<a href="/">Home</a>
-							</li>
-							<li>
-								<a href="https://www.nexusmods.com/users/69659473?tab=user+files">lamo</a>
+								<Link to={"/"}>Home</Link>
 							</li>
 						</ul>
 					</nav>
