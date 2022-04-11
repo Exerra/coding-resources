@@ -11,8 +11,6 @@ export default function Index() {
 	let languages = []
 	let categories = []
 
-	console.log(data)
-
 	for (let lang of data.languages) {
 		languages.push(language(lang))
 	}
@@ -23,20 +21,32 @@ export default function Index() {
 
 	return (
 		<div >
-			<br />
-			<h1>
-				Categories
-			</h1>
-			<div className={"remix__page"}>
-				{categories}
-			</div>
-			<br />
-			<h1>
-				Languages
-			</h1>
-			<div className={"remix__page"}>
-				{languages}
-			</div>
+			{
+				categories.length == 0 ?
+					<></> :
+					<>
+						<br />
+						<h1>
+							Categories
+						</h1>
+						<div className={"remix__page"}>
+							{categories}
+						</div>
+					</>
+			}
+			{
+				languages.length == 0 ?
+					<></> :
+					<>
+						<br />
+						<h1>
+							Languages
+						</h1>
+						<div className={"remix__page"}>
+							{languages}
+						</div>
+					</>
+			}
 		</div>
 	);
 }
