@@ -2,20 +2,30 @@
     Created by Exerra on 08/04/2022
 */
 import {useLoaderData} from "@remix-run/react";
-import { categories as categoriesArr } from "../../info"
+import { categories, languages } from "../../info"
 
 export let loader = async ({ params }) => {
-	let categories = new Map()
+	let values = new Map()
 
-	for (let category of categoriesArr) {
-		categories.set(category.shortName, { name: category.name, description: category.description, resources: category.resources })
+	let obj = {
+		categories,
+		languages
 	}
 
-	if (!categories.has(params.category.toLowerCase())) throw new Response("Not Found", {
+	let objToFetch = ""
+
+	if (params.type == "language") objToFetch = "languages"
+	else if (params.type == "category") objToFetch = "categories"
+
+	for (let value of obj[objToFetch]) {
+		values.set(value.shortName, { name: value.name, description: value.description, resources: value.resources })
+	}
+
+	if (!values.has(params.name.toLowerCase())) throw new Response("Not Found", {
 		status: 404,
 	});
 
-	return await categories.get(params.category.toLowerCase())
+	return await values.get(params.name.toLowerCase())
 }
 
 export let meta = (loader) => {
