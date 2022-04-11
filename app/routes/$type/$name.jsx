@@ -3,6 +3,7 @@
 */
 import {useLoaderData} from "@remix-run/react";
 import { categories, languages } from "../../info"
+import tableRow from "../../modules/tableRow";
 
 export let loader = async ({ params }) => {
 	let values = new Map()
@@ -47,11 +48,7 @@ export default function $category() {
 	let resources = []
 
 	for (let resource of data.resources) {
-		resources.push(<tr key={resource.name}>
-			<th className={"thLeft"}>{resource.name}</th>
-			<th className={"thCenter"}><a href={resource.url} target="_blank">{resource.url.replace(/.{1,20}:\/\//g, "").replace(/www\./g, "")}</a></th>
-			<th className={"thRight"}>{resource.category}</th>
-		</tr>)
+		resources.push(tableRow(resource))
 	}
 
 	return (
