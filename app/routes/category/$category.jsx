@@ -11,7 +11,9 @@ export let loader = async ({ params }) => {
 		categories.set(category.shortName, { name: category.name, description: category.description, resources: category.resources })
 	}
 
-	console.log(categories)
+	if (!categories.has(params.category.toLowerCase())) throw new Response("Not Found", {
+		status: 404,
+	});
 
 	return await categories.get(params.category.toLowerCase())
 }
